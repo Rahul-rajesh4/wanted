@@ -23,7 +23,7 @@ function App() {
           <Route path='/reg' element={<Register />} />
           <Route path='/user' element={<Users />} />
           <Route path='/profile' element={<Profile />} />
-          <Route path='/edit' element={<Edit />} />
+          <Route path='/Edit/:id' element={<Edit />} />
 
         </Routes>
       </BrowserRouter>

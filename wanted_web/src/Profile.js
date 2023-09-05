@@ -9,9 +9,16 @@ export default function Profile() {
       <div className='container'>
         <div className='row'>
           <div className='col-md-6'>
-            <div className='card profile'>
+            <div className='card profile'>   
+            </div>
+            <div>
+              <h3>username</h3>
+              <h3>id</h3>
               
             </div>
+          </div>
+          <div className='col-md-6'>
+            <h1>Edit Profile</h1>
           </div>
         </div>
       </div>

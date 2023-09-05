@@ -114,4 +114,14 @@ class Singledata(GenericAPIView):
             return Response({'data':serializer.data,'message':'successfull','success':True},status=status.HTTP_200_OK)
         return Response({'data':[],'message':'no data','success':False},status=status.HTTP_400_BAD_REQUEST)
         
-   
+class updateshow(GenericAPIView):
+    serializer_class = showserializers
+    def put(self,request,id):
+        queryset=show.objects.get(pk=id)
+        print(queryset)
+        serializer=showserializers(instance=queryset,data=request.data,partial=True)
+        print(serializer)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'data':serializer.data,'message':'updated successfully','success':True},status=status.HTTP_201_CREATED)
+        return Response({'data':serializer.errors,'message':'failed','success':False},status=status.HTTP_400_BAD_REQUEST)

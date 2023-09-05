@@ -18,12 +18,7 @@ export default function Display() {
 
     const Edit = (val) => {
         const id=val
-        axios.delete(`http://127.0.0.1:8000/api/Singledata/${id}`).then((response) => {
-            console.log(response);
-            navigate('./edit')
-        })
-
-
+        navigate(`/Edit/${id}`)
     }
 
     const Delete = (val) => {
@@ -43,10 +38,10 @@ export default function Display() {
         <div>
             <section>
                 <h1 class="heading">WANTED CRIMINALS</h1>
-                <div class="container">
+                <div class="container zz">
                     <div class='row'>
                         {get.map((value, key) => (
-                            <div key={key}>
+                            <div className='box' key={key}>
                                 {role === 'admin' ? (
                                     <div class="card mb-3 mt-5 carditem">
                                         <div class="row g-0">

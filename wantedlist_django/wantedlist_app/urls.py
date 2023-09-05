@@ -9,6 +9,8 @@ urlpatterns = [
     path('AddshowAPI',views.AddshowAPI.as_view(),name='AddshowAPI'),
     path('GetshowDetails',views.GetshowDetails.as_view(),name='GetshowDetails'),
     path('Singledata/<int:id>',views.Singledata.as_view(),name='Singledata'),
+    path('updateshow/<int:id>',views.updateshow.as_view(),name='updateshow'),
+
 
 
    
