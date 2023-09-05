@@ -1,0 +1,6 @@
+.bg {
+    background: linear-gradient(135deg, rgb(255, 0, 0), rgb(0, 0, 0));
+}
+.space{
+    margin-left: auto !important;
+}

@@ -1,0 +1,9 @@
+.main8{
+    padding-top: 70px !important;
+    background-image: linear-gradient(to right, rgb(255, 0, 0), rgb(0, 0, 0));
+    min-height: 500px;
+    padding-bottom: 20%;
+}
+.buttonspace{
+    margin-left: 10px;
+}

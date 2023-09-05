@@ -1,0 +1,114 @@
+
+#main {
+    padding-top: 70px !important;
+    background-image: linear-gradient(to right, rgb(255, 0, 0), rgb(0, 0, 0));
+    min-height: 500px;
+    padding-bottom: 20%;
+
+
+}
+.bgimg{
+    position: relative;
+    width: 100%;
+    height: 100vb;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-color: rgba(0,0,0,0.3);
+
+}
+.content{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    justify-content: 5left;
+    flex-direction: column;
+    z-index: 2;
+
+}
+.wantedhead{
+    margin-left: 5%;
+    color: rgb(255, 0, 0);
+    font-size: 70px;
+    font-weight: 600;
+}
+@media only screen and (max-width: 300px) {
+    .wantedhead{
+        font-size: 50px; 
+    }
+  }
+
+.content p{
+    margin-top: 1%;
+    margin-left: 5%;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+.content .button1{
+    margin-left: 10%;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    background-color: rgb(255, 0, 0);
+    padding: 14px 22px;
+    text-transform: uppercase;
+    border-radius: 20px;
+    transition: .5s;
+
+}
+
+
+.name{
+    color: rgb(0, 0, 0);
+    font-size: medium;
+}
+
+/* contact section */
+
+/* .heading1{
+
+} */
+.contact h2{margin-top: 10rem;}
+.contact form{
+    max-width: 40rem;
+    margin: 0 auto;
+    text-align: center;
+    
+}
+.contact form .input-box{display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+}
+.contact form .input-box input,textarea{border: 2px solid #323946;}
+.contact form .input-box input,.contact form textarea{
+width: 100%;
+padding: .2rem;
+font-size: 1.3rem;
+color: #ffffff;
+background: #323946;
+margin: .7rem 0;}
+.contact form .input-box input{width: 49%;}
+.contact form textarea{resize: none;}
+.contact form .input-box input.btn{
+ margin: .5rem auto;
+cursor: pointer;
+background: rgb(0, 0, 0);
+/* box-shadow: 0 0 1rem rgb(0, 0, 0); */
+font-size: 1.5rem;
+font-weight: 500;
+width: 120px;
+color: #323946;
+
+}
+span{color: red;}

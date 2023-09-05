@@ -1,0 +1,13 @@
+.heading{
+    margin-top: 10%;
+    margin-left: 5%;
+}
+/* .container{
+    display: flex;
+} */
+.carditem{
+    max-width: 550px;
+}
+.firstbutton{
+    margin-right: 10px;
+}
