@@ -31,6 +31,7 @@ export default function Login() {
       localStorage.setItem('user_id', JSON.stringify(response.data.data.user_id));
       localStorage.setItem('login_id', JSON.stringify(response.data.data.login_id));
       localStorage.setItem('Fname', JSON.stringify(response.data.data.Fname));
+      localStorage.setItem('userdata', JSON.stringify(response.data.data));
       
       navigate('/home')
     }).catch((error) => {
@@ -75,7 +76,7 @@ export default function Login() {
 
                   </div>
                 </div>
-                <button type="button" onClick={submit} class="btn btn-danger">Submit</button>
+                <button type="button" onClick={submit} class="btn btn-dark">Submit</button>
               </form>
             </div>
           </div>

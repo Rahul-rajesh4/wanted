@@ -1,6 +1,6 @@
 .main3{
     padding-top: 70px !important;
-    background-image: linear-gradient(to right, rgb(255, 0, 0), rgb(0, 0, 0));
+    background-color: rgb(124, 7, 124);
     min-height: 500px;
     padding-bottom: 20%;
 }

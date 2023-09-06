@@ -70,7 +70,7 @@ class UserLogin(GenericAPIView):
                 Lname= i['Lname']
                 Contact = i['Contact']
                 user_id = i['id']
-            return Response({'data':{'login_id':id,'user_id':user_id,'Contact':Contact,'Password':Password,'user_status':user_status,'role':role,'Fname':Fname},'message':'All set','Success':True},status=status.HTTP_200_OK)
+            return Response({'data':{'login_id':id,'user_id':user_id,'Contact':Contact,'Password':Password,'user_status':user_status,'role':role,'Fname':Fname,'Lname':Lname},'message':'All set','Success':True},status=status.HTTP_200_OK)
         else:
             return Response({'data':'non data avilable','Success':False},status=status.HTTP_400_BAD_REQUEST)
 
@@ -125,3 +125,12 @@ class updateshow(GenericAPIView):
             serializer.save()
             return Response({'data':serializer.data,'message':'updated successfully','success':True},status=status.HTTP_201_CREATED)
         return Response({'data':serializer.errors,'message':'failed','success':False},status=status.HTTP_400_BAD_REQUEST)
+    
+class userdata(GenericAPIView):
+    serializer_class= registerserializers
+    def get(self,request,id):
+        queryset = Register.objects.filter(pk=id).all()
+        if(queryset.count()>0):
+            serializer=registerserializers(queryset,many=True)
+            return Response({'data':serializer.data,'message':'successfull','success':True},status=status.HTTP_200_OK)
+        return Response({'data':[],'message':'no data','success':False},status=status.HTTP_400_BAD_REQUEST)

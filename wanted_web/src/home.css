@@ -1,7 +1,7 @@
 
 #main {
     padding-top: 70px !important;
-    background-image: linear-gradient(to right, rgb(255, 0, 0), rgb(0, 0, 0));
+    background-color: rgb(124, 7, 124);
     min-height: 500px;
     padding-bottom: 20%;
 
@@ -38,7 +38,7 @@
 }
 .wantedhead{
     margin-left: 5%;
-    color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
     font-size: 70px;
     font-weight: 600;
 }
@@ -60,7 +60,7 @@
     border: none;
     outline: none;
     font-size: 18px;
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(70, 70, 70);
     padding: 14px 22px;
     text-transform: uppercase;
     border-radius: 20px;
@@ -111,4 +111,4 @@ width: 120px;
 color: #323946;
 
 }
-span{color: red;}
+span{color: rgb(49, 47, 47);}

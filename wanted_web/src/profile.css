@@ -1,15 +1,40 @@
 .main7{
     padding-top: 70px !important;
-    background-image: linear-gradient(to right, rgb(255, 0, 0), rgb(0, 0, 0));
+    background-color: rgb(124, 7, 124);
     min-height: 500px;
-    padding-bottom: 20%;
+    padding-bottom: 100%;
 }
 .profile{
-    max-width: 200px !important;
-    min-height: 200px !important;
+    max-width: 405px !important;
+    min-height: 400px !important;
     margin-top: 40px !important;
-    border-radius: 60%;
     position: relative;
     overflow: hidden;
+}
+.profile2{
+    width: 200px !important;
+    min-height: 200px !important;
+}
+.pspace{
+    display: flex;
+    
+}
+.user_id{
+    margin-top: 5%;
+}
+.style{
+    font-family: sans-serif;
+}
+.colour{
+    color: rgb(0, 0, 0);
+}
+.namee{
+    color: rgb(255, 255, 255);
+}
+.namesize{
+    color: rgb(255, 255, 255);
+    font-size: 70px;
+    font-weight: 600;
+    text-transform: capitalize;
 
 }
