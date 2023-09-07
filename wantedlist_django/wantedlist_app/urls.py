@@ -11,6 +11,7 @@ urlpatterns = [
     path('Singledata/<int:id>',views.Singledata.as_view(),name='Singledata'),
     path('updateshow/<int:id>',views.updateshow.as_view(),name='updateshow'),
     path('userdata/<int:id>',views.userdata.as_view(),name='userdata'),
+    path('userupdate/<int:id>',views.userupdate.as_view(),name='userupdate'),
 
 
 

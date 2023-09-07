@@ -83,7 +83,8 @@ class AddshowAPI(GenericAPIView):
         Category=request.data.get('Category')
         Age=request.data.get('Age')
         Price=request.data.get('Price')
-        serializer_show=self.serializer_class(data={'Firstname':Firstname,'Lastname':Lastname,'Category':Category,'Age':Age,'Price':Price,})
+        Images = request.data.get('Images')
+        serializer_show=self.serializer_class(data={'Firstname':Firstname,'Lastname':Lastname,'Category':Category,'Age':Age,'Price':Price,'Images':Images})
         print(serializer_show)
         if(serializer_show.is_valid()):
             serializer_show.save()
@@ -134,3 +135,18 @@ class userdata(GenericAPIView):
             serializer=registerserializers(queryset,many=True)
             return Response({'data':serializer.data,'message':'successfull','success':True},status=status.HTTP_200_OK)
         return Response({'data':[],'message':'no data','success':False},status=status.HTTP_400_BAD_REQUEST)
+    
+
+class userupdate(GenericAPIView):
+    serializer_class = registerserializers
+    def put(self,request,id):
+        queryset = Register.objects.get(pk=id)
+        print(queryset)
+        serializers = registerserializers(instance=queryset,data=request.data,partial= True)
+        print(serializers)
+        if serializers.is_valid():
+            serializers.save()
+            return Response({'data':serializers.data,'message':'updated successfully','success':True},status=status.HTTP_201_CREATED)
+        return Response({'data':serializers.errors,'message':'failed','success':False},status=status.HTTP_400_BAD_REQUEST)
+        
+        

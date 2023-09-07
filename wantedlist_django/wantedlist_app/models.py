@@ -22,3 +22,4 @@ class show(models.Model):
     Category = models.CharField(max_length=30)
     Age = models.CharField(max_length=30)
     Price = models.CharField(max_length=30)
+    Images = models.ImageField(upload_to='images/',null=True)
