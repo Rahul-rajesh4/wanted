@@ -2,9 +2,11 @@ from django.shortcuts import render,redirect
 from .serializers import loginserializers
 from .serializers import registerserializers
 from .serializers import showserializers
+from .serializers import contactserializers
 from .models import Login
 from .models import Register
 from .models import show
+from .models import contact
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -97,7 +99,7 @@ class GetshowDetails(GenericAPIView):
         queryset=show.objects.all()
         if(queryset.count()>0):
             serializer=showserializers(queryset,many=True)
-            return Response({'data':serializer.data,'message':'all product set','success':True},status=status.HTTP_200_OK)
+            return Response({'data':serializer.data,'message':'all set','success':True},status=status.HTTP_200_OK)
         return Response({'data':'no data available','success':False},status=status.HTTP_400_BAD_REQUEST)
 
 class Deleteshow(GenericAPIView):
@@ -148,5 +150,24 @@ class userupdate(GenericAPIView):
             serializers.save()
             return Response({'data':serializers.data,'message':'updated successfully','success':True},status=status.HTTP_201_CREATED)
         return Response({'data':serializers.errors,'message':'failed','success':False},status=status.HTTP_400_BAD_REQUEST)
-        
-        
+
+class contactUs(GenericAPIView):
+    serializer_class = contactserializers
+    def post(self,request):
+        Fname = request.data.get('Fname')
+        Lname = request.data.get('Lname')
+        Contact = request.data.get('Contact')
+        Email = request.data.get('Email')
+        Message = request.data.get('Message')
+        serializers_contact = self.serializer_class(data={'Fname':Fname,'Lname':Lname,'Contact':Contact,'Email':Email,'Message':Message})
+
+
+# class displaycontactUs(GenericAPIView):
+#     serializer_class = contactserializers
+#     def get(self,request,id):
+#         queryset=contact.objects.all()
+#         if(queryset.count()>0):
+#             serializer=contactserializers(queryset,many=True)
+#             return Response({'data':serializer.data,'message':'successfull','success':True},status=status.HTTP_200_OK)
+#         return Response({'data':'no data available','success':False},status=status.HTTP_400_BAD_REQUEST)
+

@@ -86,9 +86,12 @@ export default function Edit() {
                                                 <br></br>
                                                 <label class="name">price</label>
                                                 <input type="number" class="form-control" placeholder="price" name='Price' defaultValue={get && get.Price} onChange={inputChange} ></input>
+                                                <br></br>
+                                                <label class="name">Add Photo</label>
+                                                <input type="file" class="form-control" placeholder="file" name='file' onChange={(p)=>{console.log(p.target.files[0]);;setState({ ...state,'file':p.target.files})}}></input>
                                                 <br></br><br></br>
-                                                <button type="button" onClick={update}  class="btn btn-danger">Update</button>
-                                                <button type="button" onClick={Back} class="btn btn-danger buttonspace">Go Home</button>
+                                                <button type="button" onClick={update}  class="btn btn-dark">Update</button>
+                                                <button type="button" onClick={Back} class="btn btn-dark buttonspace">Go Home</button>
                                             </form>
 
                                         </div>

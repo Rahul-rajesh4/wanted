@@ -23,3 +23,10 @@ class show(models.Model):
     Age = models.CharField(max_length=30)
     Price = models.CharField(max_length=30)
     Images = models.ImageField(upload_to='images/',null=True)
+
+class contact(models.Model):
+    Fname = models.CharField(max_length=30)
+    Lname = models.CharField(max_length=30)
+    Contact = models.CharField(max_length=30)
+    Email = models.CharField(max_length=30)
+    Message = models.CharField(max_length=200)

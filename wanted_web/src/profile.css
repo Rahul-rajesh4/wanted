@@ -11,9 +11,20 @@
     position: relative;
     overflow: hidden;
 }
+@media only screen and (max-width: 300px){
+    .profile{
+        min-height: 300px !important;
+        max-width: 255px !important;
+    }
+}
 .profile2{
     width: 200px !important;
     min-height: 200px !important;
+}
+@media only screen and (max-width: 300px){
+    .profile2{
+        min-height: 150px !important;
+    }
 }
 .pspace{
     display: flex;

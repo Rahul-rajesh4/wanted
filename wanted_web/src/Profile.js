@@ -33,13 +33,14 @@ export default function Profile() {
         const{name,value} = event.target
         setUpdate({...update,[name]:value})
     }
-    console.log(update);
+   
 
 
     const  show = ()=>{
       axios.put(`http://127.0.0.1:8000/api/userupdate/${id}`,update).then((response)=>{
           console.log(response);
       }).catch((error)=>{console.log(error);})
+      window.location.reload()
   }
 
 
@@ -49,7 +50,7 @@ export default function Profile() {
 
 
 
-
+  console.log(update);
   return (
     <>
       <Navbar />

@@ -30,7 +30,7 @@ export default function Login() {
       console.log(response);
       localStorage.setItem('user_id', JSON.stringify(response.data.data.user_id));
       localStorage.setItem('login_id', JSON.stringify(response.data.data.login_id));
-      localStorage.setItem('Fname', JSON.stringify(response.data.data.Fname));
+      localStorage.setItem('Fname', JSON.stringify(response.data.data.role));
       localStorage.setItem('userdata', JSON.stringify(response.data.data));
       
       navigate('/home')

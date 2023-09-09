@@ -72,7 +72,7 @@ export default function Additem() {
                                                 <input type="number" class="form-control" placeholder="price" name='Price' onChange={inputChange}></input>
                                                 <br></br>
                                                 <label class="name">Add Photo</label>
-                                                <input type="file" class="form-control" placeholder="file" name='file' onChange={(p)=>setOutput({ ...output,'file':p.target.files })}></input>
+                                                <input type="file" class="form-control" placeholder="file" name='file' onChange={(p)=>{console.log(p.target.files[0]);;setOutput({ ...output,'file':p.target.files})}}></input>
                                                 <br></br><br></br>
                                                 <button type="button" onClick={submit} class="btn btn-dark">ADD</button>
                                             </form>

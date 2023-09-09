@@ -10,6 +10,7 @@ import Register from './Register';
 import Users from './Users';
 import Profile from './Profile';
 import Edit from './Edit';
+import View from './View';
 function App() {
   return (
     <>
@@ -24,6 +25,7 @@ function App() {
           <Route path='/user' element={<Users />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/Edit/:id' element={<Edit />} />
+          <Route path='/view' element={<View />} />
 
         </Routes>
       </BrowserRouter>

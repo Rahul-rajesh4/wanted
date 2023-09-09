@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './register.css'
 import axios from 'axios'
 import Navbar from './Navbar'
+import { Navigate, useNavigate } from 'react-router-dom'
 export default function Register() {
 
     const [input,setInput] = useState({
@@ -17,6 +18,7 @@ export default function Register() {
   
       setInput({...input,[name]:value})
     }
+
     
    
     const submit = () => {
@@ -26,9 +28,12 @@ export default function Register() {
             console.log(error);
         })
     }
+    const Navigate=useNavigate()
+    const Backk = ()=>{
+    Navigate('/')
+   }
   return (
     <>
-    <Navbar/>
     <div className='main4'>
         <div class="container mt-5">
       <div class="card">
@@ -62,11 +67,8 @@ export default function Register() {
               <input type="password" class="form-control" id="exampleInputPassword2"></input>
             </div> */}
             <br></br><br></br>
-            <div>
-                <a href='/login'>Login</a>
-            </div>
-            <br></br><br></br>
-            <button type="button" onClick={submit} class="btn btn-danger">Submit</button>
+            <button type="button" onClick={submit} class="btn btn-dark">Submit</button>
+            &nbsp;<button onClick={Backk} class="btn btn-dark">Back</button>
           </form>
         </div>
       </div>

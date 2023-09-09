@@ -33,6 +33,9 @@ const logout = ()=>{
                                     <a class="nav-link text-light" href="/user">Users</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link text-light" href="/view">View</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link text-light" href="/" onClick={logout}>Logout</a>
                                 </li>
                             </ul>
