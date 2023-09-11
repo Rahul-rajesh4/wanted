@@ -1,6 +1,9 @@
 .main10{
-    padding-top: 70px !important;
+    padding-top: 80px !important;
     background-color: rgb(124, 7, 124);
     min-height: 1000px;
     padding-bottom: 20%;
+}
+.low{
+    margin-top: 4%;
 }

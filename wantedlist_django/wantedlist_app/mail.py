@@ -1,28 +1,31 @@
 import smtplib
 import getpass
 
-HOST = "smtp-mail.outlook.com"
-PORT = "587"
+def sendmail(mail,data):
+    print(mail,data)
 
-FROM_EMAIL = "rahulrajeshh4@outlook.com"
-TO_EMAIL = "rahulrajeshh4@gmail.com"
-PASSWORD = "Poiuytrewq@12#"
+    HOST = "smtp-mail.outlook.com"
+    PORT = "587"
 
-SUBJECT = "Test Mail"
-BODY = "Good Morning"
+    FROM_EMAIL = "rahulrajeshh4@outlook.com"
+    TO_EMAIL = mail
+    PASSWORD = "Poiuytrewq@12#"
 
-message = f"Subject:{SUBJECT}\n\n{BODY}"
+    SUBJECT = "Test Mail"
+    BODY = data
 
-smtp = smtplib.SMTP(HOST, PORT)
+    message = f"Subject:{SUBJECT}\n\n{BODY}"
+ 
+    smtp = smtplib.SMTP(HOST, PORT)
 
-status_code,responce = smtp.ehlo()
-print(f"[*] Echoing the server: {status_code}{responce}")
+    status_code,responce = smtp.ehlo()
+    print(f"[*] Echoing the server: {status_code}{responce}")
 
-status_code,responce = smtp.starttls()
-print(f"[*] Starting TLS connection: {status_code}{responce}")
+    status_code,responce = smtp.starttls()
+    print(f"[*] Starting TLS connection: {status_code}{responce}")
 
-status_code,responce = smtp.login(FROM_EMAIL,PASSWORD)
-print(f"[*] Starting TLS connection: {status_code}{responce}")
+    status_code,responce = smtp.login(FROM_EMAIL,PASSWORD)
+    print(f"[*] Starting TLS connection: {status_code}{responce}")
 
-smtp.sendmail(FROM_EMAIL,TO_EMAIL,message)
-smtp.quit()
+    smtp.sendmail(FROM_EMAIL,TO_EMAIL,message)
+    smtp.quit() 

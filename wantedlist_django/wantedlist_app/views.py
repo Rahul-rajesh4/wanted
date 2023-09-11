@@ -10,6 +10,7 @@ from .models import contact
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 from rest_framework import status
+from .mail import sendmail
 
 class UserRegister(GenericAPIView):
     serializer_class = registerserializers
@@ -160,14 +161,38 @@ class contactUs(GenericAPIView):
         Email = request.data.get('Email')
         Message = request.data.get('Message')
         serializers_contact = self.serializer_class(data={'Fname':Fname,'Lname':Lname,'Contact':Contact,'Email':Email,'Message':Message})
+        print(serializers_contact)
+        if(serializers_contact.is_valid()):
+            serializers_contact.save()
+            return Response({'data':serializers_contact.data,'message':'Added successfully','success':True},status=status.HTTP_201_CREATED)
+        return Response({'data':serializers_contact.errors,'message':'failed','success':False},status=status.HTTP_400_BAD_REQUEST)
 
 
-# class displaycontactUs(GenericAPIView):
-#     serializer_class = contactserializers
-#     def get(self,request,id):
-#         queryset=contact.objects.all()
-#         if(queryset.count()>0):
-#             serializer=contactserializers(queryset,many=True)
-#             return Response({'data':serializer.data,'message':'successfull','success':True},status=status.HTTP_200_OK)
-#         return Response({'data':'no data available','success':False},status=status.HTTP_400_BAD_REQUEST)
+class displaycontactUs(GenericAPIView):
+    serializer_class = contactserializers
+    def get(self,request):
+        queryset = contact.objects.all()
+        if(queryset.count()>0):
+            serializer = contactserializers(queryset,many=True)
+            return Response({'data':serializer.data,'message':'successfull','Success':True},status=status.HTTP_200_OK)
+        else:
+            return Response({'data':'non data avilable','Success':False},status=status.HTTP_400_BAD_REQUEST)
+        
+class singlecontactus(GenericAPIView):
+    serializer_class=contactserializers
+    def get(self,request,id):
+        queryset = contact.objects.filter(pk=id).values()
+        if(queryset.count()>0):
+            serializer=contactserializers(queryset,many=True)
+            return Response({'data':serializer.data,'message':'successfull','success':True},status=status.HTTP_200_OK)
+        return Response({'data':[],'message':'no data','success':False},status=status.HTTP_400_BAD_REQUEST)
+    
 
+class replay(GenericAPIView):
+    def post(self,request):
+        Fname = request.data.get('Fname')
+        Lname = request.data.get('Lname')
+        Email = request.data.get('Email')
+        Reply = request.data.get('Reply')
+        sendmail(Email,Reply)
+        return Response({'data':{'Email':Email,'Reply':Reply},'message':'updated successfully','success':True},status=status.HTTP_201_CREATED)

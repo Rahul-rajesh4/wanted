@@ -12,8 +12,9 @@ urlpatterns = [
     path('updateshow/<int:id>',views.updateshow.as_view(),name='updateshow'),
     path('userdata/<int:id>',views.userdata.as_view(),name='userdata'),
     path('userupdate/<int:id>',views.userupdate.as_view(),name='userupdate'),
-
-
-
-   
+    path('contactUs',views.contactUs.as_view(),name='contactUs'),
+    path('displaycontactUs',views.displaycontactUs.as_view(),name='displaycontactUs'),
+    path('singlecontactus/<int:id>',views.singlecontactus.as_view(),name='singlecontactus'),
+    path('replay',views.replay.as_view(),name='replay'),
+  
 ]

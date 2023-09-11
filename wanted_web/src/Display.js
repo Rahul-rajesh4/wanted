@@ -56,7 +56,7 @@ export default function Display() {
                                                         Price:{value.Price}
                                                     </label>
                                                     </p>
-                                                    <button type="button" class="btn  firstbutton text-white" onClick={() => { Edit(value.id) }}>Edit</button>
+                                                    <button type="button" class="btn btn-dark firstbutton" onClick={() => { Edit(value.id) }}>Edit</button>
                                                     <button type="button" class="btn btn-danger" onClick={() => { Delete(value.id) }}>Delete</button>
                                                 </div>
                                             </div>
