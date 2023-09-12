@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import './login.css'
+import wanted from './Images/wanted.jpg'
 import Navbar from './Navbar'
 import axios from 'axios'
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Navigate, useNavigate } from 'react-router-dom'
@@ -32,7 +34,7 @@ export default function Login() {
       localStorage.setItem('login_id', JSON.stringify(response.data.data.login_id));
       localStorage.setItem('Fname', JSON.stringify(response.data.data.role));
       localStorage.setItem('userdata', JSON.stringify(response.data.data));
-      
+
       navigate('/home')
     }).catch((error) => {
       console.log(error.response.data.data);
@@ -54,31 +56,35 @@ export default function Login() {
     <>
       <ToastContainer />
       <div class="main3">
-        <div class="container mt-5">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Login</h5>
-              <h6 class="card-subtitle mb-2 text-muted"></h6>
-              <form class="space">
-                <div class="mb-3 ">
-                  <label for="exampleInputEmail1" class="form-label text-dark">Email Address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" name='Email' onChange={inputChange} aria-describedby="emailHelp"></input>
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label text-dark">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" name='Password' onChange={inputChange}></input>
-                  <div>
-                    <br></br>
-                    <div>
-                      <a href='#'>forgot</a>&nbsp;&nbsp;&nbsp;
-                      <a href='/reg'>create</a>
-                    </div>
-
+        <div class="bgimg2" style={{ backgroundImage: `url(${wanted})` }}>
+          <div className='darkcolor'>
+          <div class="container mt-5">
+            <div class="card maincard">
+              <div class="card-body">
+                <h5 class="card-title ">Login</h5>
+                <h6 class="card-subtitle mb-2 text-muted"></h6>
+                <form class="space">
+                  <div class="mb-3 ">
+                    <label for="exampleInputEmail1" class="form-label text-dark">Email Address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" name='Email' onChange={inputChange} aria-describedby="emailHelp"></input>
                   </div>
-                </div>
-                <button type="button" onClick={submit} class="btn btn-dark">Submit</button>
-              </form>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label text-dark">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name='Password' onChange={inputChange}></input>
+                    <div>
+                      <br></br>
+                      <div>
+                        <a href='#'>forgot</a>&nbsp;&nbsp;&nbsp;
+                        <a href='/reg'>create</a>
+                      </div>
+
+                    </div>
+                  </div>
+                  <button type="button" onClick={submit} class="btn btn-dark">Submit</button>
+                </form>
+              </div>
             </div>
+          </div>
           </div>
         </div>
       </div>
