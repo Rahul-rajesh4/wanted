@@ -46,7 +46,7 @@ export default function Display() {
                                     <div class="card mb-3 mt-5 carditem">
                                         <div class="row g-0">
                                             <div class="col-md-4">
-                                                <img src={`${value.Images}`} class="img-fluid rounded-start" alt="..."></img>
+                                                <img src={`wantedlist_django/${value.Images}`} class="img-fluid rounded-start cardimage" alt="..."></img>
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="card-body">

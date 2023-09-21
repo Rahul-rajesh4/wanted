@@ -17,10 +17,17 @@ export default function Additem() {
     
 
     const submit = () => {
+        const data=new FormData()
+        data.append('Firstname',output.Firstname)
+        data.append('Lastname',output.Lastname)
+        data.append('Age',output.Age)
+        data.append('Category',output.Category)
+        data.append('Price',output.Price)
+        data.append('Images',output.Images)
         console.log(output);
-        axios.post('http://127.0.0.1:8000/api/AddshowAPI', output).then((response) =>{
+        axios.post('http://127.0.0.1:8000/api/AddshowAPI', data).then((response) =>{
             console.log(response)
-            nav('/home')
+            // nav('/home')
 
         })
 
@@ -72,7 +79,7 @@ export default function Additem() {
                                                 <input type="number" class="form-control" placeholder="price" name='Price' onChange={inputChange}></input>
                                                 <br></br>
                                                 <label class="name">Add Photo</label>
-                                                <input type="file" class="form-control" placeholder="file" name='file' onChange={(p)=>{console.log(p.target.files[0]);;setOutput({ ...output,'file':p.target.files})}}></input>
+                                                <input type="file" class="form-control" placeholder="file" name='Images' onChange={(e)=>{console.log(e.target.files[0]);;setOutput({ ...output,'Images':e.target.files[0]})}}></input>
                                                 <br></br><br></br>
                                                 <button type="button" onClick={submit} class="btn btn-dark">ADD</button>
                                             </form>
