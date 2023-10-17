@@ -105,6 +105,7 @@ class GetshowDetails(GenericAPIView):
 
 class Deleteshow(GenericAPIView):
     def delete(self,request,id):
+        print(id)
         deldata=show.objects.get(pk=id)
         deldata.delete()
         return Response({'message':'deleted','success':True},status=status.HTTP_400_BAD_REQUEST)

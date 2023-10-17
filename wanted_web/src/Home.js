@@ -4,10 +4,20 @@ import Navbar from './Navbar'
 import wanted from './Images/wanted.jpg'
 import Display from './Display'
 import axios from 'axios'
+import { useSelector,useDispatch } from 'react-redux'
+import { contactus } from './REDUX/SLICE/counterSlice'
 export default function Home() {
+
+
+
 
     const role = JSON.parse(localStorage.getItem('Fname'))
     console.log(role);
+
+
+    const {data} = useSelector((state)=>state.display)
+    const dispatch = useDispatch()
+    console.log(data);
 
 
     const [post, setPost] = useState({ })
@@ -20,12 +30,13 @@ export default function Home() {
 
     const submit = () => {
         console.log(post);
-        axios.post('http://127.0.0.1:8000/api/contactUs', post).then((response) =>{
-            console.log(response)
-            window.location.reload()
-            
+        dispatch(contactus(post))
+        // window.location.reload()
 
-        })
+        // axios.post('http://127.0.0.1:8000/api/contactUs', post).then((response) =>{
+        //     console.log(response)
+        //     
+        // })
 
     }
     return (

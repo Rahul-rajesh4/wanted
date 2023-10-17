@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import './Additem.css'
 import Navbar from './Navbar'
-import axios from 'axios'
 import { Navigate, useNavigate } from 'react-router-dom'
+import { useSelector,useDispatch } from 'react-redux'
+import { addItems } from './REDUX/SLICE/counterSlice'
 export default function Additem() {
+
+    
 
 
     const nav = useNavigate()
@@ -13,6 +16,10 @@ export default function Additem() {
         const { name, value } = event.target
         setOutput({ ...output, [name]: value })
     }
+
+    const {data} = useSelector((state)=>state.display)
+    const dispatch = useDispatch()
+    console.log(data);
   
     
 
@@ -25,12 +32,12 @@ export default function Additem() {
         data.append('Price',output.Price)
         data.append('Images',output.Images)
         console.log(output);
-        axios.post('http://127.0.0.1:8000/api/AddshowAPI', data).then((response) =>{
-            console.log(response)
-            // nav('/home')
-
-        })
-
+        // axios.post('http://127.0.0.1:8000/api/AddshowAPI', data).then((response) =>{
+        //     console.log(response)
+        //     
+        // })
+        dispatch(addItems(output))
+        nav('/home')
     }
 
  

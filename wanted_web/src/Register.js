@@ -4,7 +4,14 @@ import wanted from './Images/wanted.jpg'
 import axios from 'axios'
 import Navbar from './Navbar'
 import { Navigate, useNavigate } from 'react-router-dom'
+import { useSelector,useDispatch } from 'react-redux'
+import { userReg } from './REDUX/SLICE/counterSlice'
 export default function Register() {
+
+
+  const {data} = useSelector((state)=>state.display)
+    const dispatch = useDispatch()
+    console.log(data);
 
   const [input, setInput] = useState({
     Fname: '',
@@ -23,11 +30,9 @@ export default function Register() {
 
 
   const submit = () => {
-    axios.post('http://127.0.0.1:8000/api/UserRegister', input).then((responce) => {
-      console.log(responce);
-    }).catch((error) => {
-      console.log(error);
-    })
+
+    dispatch( userReg(input))
+    Navigate('/')
   }
   const Navigate = useNavigate()
   const Backk = () => {

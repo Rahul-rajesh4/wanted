@@ -15,11 +15,6 @@ export default function Display() {
     },[])
 
 
-
-
-
-
-
     const navigate = useNavigate()
 
     const role = JSON.parse(localStorage.getItem('Fname'))
@@ -37,12 +32,11 @@ export default function Display() {
         navigate(`/Edit/${id}`)
     }
 
-    const Delete = (val) => {
-        const id = val
+    const Delete = (id) => {
+        // const id = val
+        console.log(id);
         dispatch(deleteData(id))
-        window.location.reload()
-
-
+       
     }
 
 
@@ -62,14 +56,14 @@ export default function Display() {
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="card-body">
-                                                    <h5 class="card-title"><label>{data.Firstname} {data.Lastname}</label></h5>
-                                                    <p class="card-text"><label>Category:{data.Category}<br></br>
-                                                        Age:{data.Age}<br></br>
-                                                        Price:{data.Price}
+                                                    <h5 class="card-title"><label>{value.Firstname} {value.Lastname}</label></h5>
+                                                    <p class="card-text"><label>Category:{value.Category}<br></br>
+                                                        Age:{value.Age}<br></br>
+                                                        Price:{value.Price}
                                                     </label>
                                                     </p>
                                                     <button type="button" class="btn btn-dark firstbutton" onClick={() => { Edit(value.id) }}>Edit</button>
-                                                    <button type="button" class="btn btn-danger" onClick={(id) => {dispatch(deleteData(id)) }}>Delete</button>
+                                                    <button type="button" class="btn btn-danger" onClick={() =>{Delete(value.id)}}>Delete</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -78,14 +72,14 @@ export default function Display() {
                                     <div class="card mb-3 mt-5 carditem">
                                         <div class="row g-0">
                                             <div class="col-md-4">
-                                                <img src="..." class="img-fluid rounded-start" alt="..."></img>
+                                                <img src={`wantedlist_django/${value.Images}`} class="img-fluid rounded-start" alt="..."></img>
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="card-body">
-                                                    <h5 class="card-title"><label>{data.Firstname} {data.Lastname}</label></h5>
-                                                    <p class="card-text"><label>Category:{data.Category}<br></br>
-                                                        Age:{data.Age}<br></br>
-                                                        Price: {data.Price}
+                                                    <h5 class="card-title"><label>{value.Firstname} {value.Lastname}</label></h5>
+                                                    <p class="card-text"><label>Category:{value.Category}<br></br>
+                                                        Age:{value.Age}<br></br>
+                                                        Price: {value.Price}
                                                     </label>
                                                     </p>
                                                 </div>
